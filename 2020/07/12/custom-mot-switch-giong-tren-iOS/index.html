@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/round.png">
 <meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/translate.png">
 <meta property="article:published_time" content="2020-07-12T15:00:05.000Z">
-<meta property="article:modified_time" content="2020-07-12T16:26:07.170Z">
+<meta property="article:modified_time" content="2020-07-12T16:39:39.385Z">
 <meta property="article:author" content="Hung Phung">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/ios.png">
@@ -168,7 +168,7 @@
 <p>Xong, thẻ <code>input</code> biến mất. Nhưng mà hãy nhớ là nó chỉ là không nhìn thấy thôi nhé, chứ chưa phải là xóa khỏi DOM đâu. Ta sẽ cần đến thằng <code>input</code> này, để kết hợp với <code>&lt;label&gt;</code> điều khiển quả bóng được tao ra từ <code>&lt;div class=&quot;slider&quot;&gt;&lt;/div&gt;</code>. Minh họa này cho dễ hiểu :</p>
 <p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/switch.png" alt="Một bức ảnh minh họa"></p>
 <blockquote>
-<p>Style cho <label> thành cái bao, và <code>&lt;div class=&quot;slider&quot;&gt;</code> thành quả bóng.</p>
+<p>Style cho <code>&lt;label&gt;</code> thành cái khung bao bên ngoài, và <code>&lt;div class=&quot;slider&quot;&gt;</code> thành rãnh và quả bóng.</p>
 </blockquote>
 <h3 id="Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong"><a href="#Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong" class="headerlink" title="Bước 2, style cho &lt;div class=&quot;slider&quot;&gt; để tạo ra nền và quả bóng."></a>Bước 2, style cho <code>&lt;div class=&quot;slider&quot;&gt;</code> để tạo ra nền và quả bóng.</h3><p>Thằng div này vai trò khá khủng. Nó sẽ là cái rãnh cho quả bóng lăn đi lăn lại ( bao ngoài quả bóng, và tất nhiên <label> lại bao ngoài div như cấu trúc HTML đã viết ).</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.slider</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
