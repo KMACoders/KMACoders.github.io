@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/round.png">
 <meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/translate.png">
 <meta property="article:published_time" content="2020-07-12T15:00:05.000Z">
-<meta property="article:modified_time" content="2020-07-12T16:13:57.350Z">
+<meta property="article:modified_time" content="2020-07-12T16:21:31.086Z">
 <meta property="article:author" content="Hung Phung">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/ios.png">
@@ -220,6 +220,7 @@
 
 
 <h2 id="Ket-bai"><a href="#Ket-bai" class="headerlink" title="Kết bài"></a>Kết bài</h2><p>Và thế là xong, thực ra custom các ô <code>input</code> dạng này đều dựa theo nguyên lý như vậy. Nên là quan trọng nhất vẫn là lôi máy ngay ra và tự tay thử xem sao nhé. Okay đoạn này rồi, lần sau mình sẽ viết những quả custom xịn hơn, nhiều animation hơn, để lại có cái lên đấy chém tiếp.<br>Giờ là 22:00 đêm rồi, bố mẹ đang gọi ầm lên dưới nhà. Bố mẹ mình vừa đi du lịch trên Tuyên Quang về, mình bị bắt về nhà ở quê trông nhà mấy hôm nay. Giờ tắt máy đã, xuống xem có gì ăn, nghe thoáng thoáng là thấy 1 đống ô mai haha, chẳng ai hiểu mình hơn thế.<br>Thế nhé !!!</p>
+<p>( Update : 23:18. Mình chạy xuống nhà. Và bố mẹ mình phát hiện ra là để quên mất em iPad trên xe oto mất rồi. Bác ấy lại ở tận Việt Trì. Thế là mình mang laptop xuống bật Find My Phone trên Apple mà khổ, bố lại tắt mạng. Thế là thành ra câu chuyện nghiêng về cái iPad nhiều hơn là mình sẽ ăn gì. Ngậm ngùi cầm tạm 1 hộp ô mai lên tầng và thêm đoạn này vào blog. Haizz, mai 6 7h lại còn dậy để phi xuống HN sớm chiều còn đi làm. )</p>
 
   </div>
 </article>
@@ -341,7 +342,7 @@
   <script type="text/javascript">
   $(function() {
     // copy-btn HTML
-    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
     btn += '<i class="far fa-clone"></i>';
     btn += '</span>'; 
     // mount it!
@@ -352,7 +353,7 @@
       }
     });
     clip.on('success', function(e) {
-      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.trigger.setAttribute('aria-label', "Copied!");
       e.clearSelection();
     })
   })
