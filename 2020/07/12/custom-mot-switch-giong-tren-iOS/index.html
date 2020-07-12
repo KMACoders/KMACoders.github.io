@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang=vi>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Lại một tuần trôi qua, thực ra thì nó vẫn sẽ trôi qua bất kể mình làm gì, học gì, hay thậm chí là nghĩ gì. Thế nên là, để cho buổi tối chủ nhật này không trôi qua vô ích, mình lại vào đây và viết một">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Custom một Switch giống trên iOS">
+<meta property="og:url" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/index.html">
+<meta property="og:site_name" content="kmacoders">
+<meta property="og:description" content="Lại một tuần trôi qua, thực ra thì nó vẫn sẽ trôi qua bất kể mình làm gì, học gì, hay thậm chí là nghĩ gì. Thế nên là, để cho buổi tối chủ nhật này không trôi qua vô ích, mình lại vào đây và viết một">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/ios.png">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/switch.png">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/slider.png">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/calc-switch.png">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/round.png">
+<meta property="og:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/translate.png">
+<meta property="article:published_time" content="2020-07-12T15:00:05.000Z">
+<meta property="article:modified_time" content="2020-07-12T15:10:15.154Z">
+<meta property="article:author" content="Hung Phung">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/ios.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Custom một Switch giống trên iOS</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Trang chủ</a></li>
+         
+          <li><a href="/about/">Giới thiệu</a></li>
+         
+          <li><a href="/archives/">Bài viết</a></li>
+         
+          <li><a href="/projects_url">Dự án</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/06/10/ban-biet-bao-nhieu-cach-an-di-mot-element/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Bài trước</span>
+      <span id="i-next" class="info" style="display:none;">Bài tiếp theo</span>
+      <span id="i-top" class="info" style="display:none;">Về đầu trang</span>
+      <span id="i-share" class="info" style="display:none;">Chia sẻ bài viết</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&text=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&is_video=false&description=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Custom một Switch giống trên iOS&body=Check out this article: https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&name=Custom một Switch giống trên iOS&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&t=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mo-bai"><span class="toc-number">1.</span> <span class="toc-text">Mở bài</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Than-bai"><span class="toc-number">2.</span> <span class="toc-text">Thân bài</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tao-structure-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Tạo structure HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-an-di-the"><span class="toc-number">2.2.</span> <span class="toc-text">Bước 1, ẩn đi thẻ </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong"><span class="toc-number">2.3.</span> <span class="toc-text">Bước 2, style cho &lt;div class&#x3D;&quot;slider&quot;&gt; để tạo ra nền và quả bóng.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-xu-ly-viec-chay-di-chay-lai-cua-bong"><span class="toc-number">2.4.</span> <span class="toc-text">Bước 3, xử lý việc chạy đi chạy lại của bóng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hoan-thien"><span class="toc-number">2.5.</span> <span class="toc-text">Hoàn thiện</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-bai"><span class="toc-number">3.</span> <span class="toc-text">Kết bài</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Custom một Switch giống trên iOS
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">kmacoders</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-07-12T15:00:05.000Z" itemprop="datePublished">2020-07-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>Lại một tuần trôi qua, thực ra thì nó vẫn sẽ trôi qua bất kể mình làm gì, học gì, hay thậm chí là nghĩ gì. Thế nên là, để cho buổi tối chủ nhật này không trôi qua vô ích, mình lại vào đây và viết một vài thứ gì đó có ích. Chợt nhận ra đã lâu lắm rồi mình không có một ngày cuối tuần không động đến code đúng nghĩa ( theo kiểu relax full time 1 ngày cuối tuần theo như quy tắc mình đặt ngày xưa ), vì bởi dạo này lúc nào cũng có tâm trạng là mình cần phải lao lên nhanh hơn nữa - để be greater hơn bạn bè, đồng nghiệp chẳng hạn, ai cũng giỏi mà. Umm, nên thôi, viết cái này tuy động đến code, nhưng với mình thì vẫn coi như “relax tàm tạm” được, vì là blog của mình mà…</p>
+<hr>
+<h2 id="Mo-bai"><a href="#Mo-bai" class="headerlink" title="Mở bài"></a>Mở bài</h2><p>Đợt đầu tuần nhìn xem update iOS 14, mình nhìn thấy thanh switch trên iOS. Đối với những lựa chọn mang tính Yes/No thì Apple rất hay sử dụng thanh switch này, đến nỗi nhìn nó là biết ngay là HĐH nào rồi. Thế là mình chợt nghĩ lại hồi mới bắt đầu học CSS, mình cũng từng muốn làm một cái như thế bằng CSS, mà mãi không hiểu sao họ làm được, làm đẹp. Cho đến khi làm được, thì mình lại bị cuốn vào một lô một lốc những sự việc xảy ra, rồi bao thứ phải học khác, mà quên mất rằng “Umm, biết đâu cũng có một số người như mình hồi xưa, thắc mắc nguyên lý nào để custom ra một switch như vậy, rồi viết CSS như nào”.<br>Thế nên mình viết notes này, nhẽ là định hôm qua mà đêm qua ngồi làm nốt task trên công ty đến 1h sáng mới xong, nên mình để sang hôm nay. Thì với iFans thì khỏi nói rồi, ai dùng Android thì thanh ấy trông như thế này đây.</p>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/ios.png" alt="Một bức ảnh minh họa"></p>
+<p>Okay, và mục tiêu của mình, vừa là CSS, vừa là nguyên lý để tạo nên những custom kiểu này, mình tin là từ những custom basic đến advanced hơn thì nguyên lý không đổi. Nên nếu áp dụng tốt, ta hoàn toàn có thể tạo ra những thứ đẹp hơn, phức tạp hơn rất nhiều.</p>
+<h2 id="Than-bai"><a href="#Than-bai" class="headerlink" title="Thân bài"></a>Thân bài</h2><h3 id="Tao-structure-HTML"><a href="#Tao-structure-HTML" class="headerlink" title="Tạo structure HTML"></a>Tạo structure HTML</h3><p>Switch là 1 thanh dạng Yes/No, như vậy thì chúng ta sẽ nghĩ đến những input dạng này có trong HTML, có Checkbox và Radio Button, có lẽ trong trường hợp này thì Checkbox phù hợp hơn đúng không. Như vậy mục tiêu sẽ là custom Checkbox.</p>
+<p>Bước đầu tiên, là ta quan sát để tạo base cho HTML. Ta thấy Switch có 1 thanh trượt và 1 quả bóng trượt bên trong. Như vậy, ta sẽ ra được 1 cấu trúc HTML đơn giản như thế này :</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">for</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slider"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Tất nhiên, thẻ tất yếu phải có là <code>&lt;input&gt;</code>, có <code>type=&quot;checkbox&quot;</code>.  Cái quan trọng ở đây, chính là thành phần wrapper bao bọc bên ngoài. Nó có ý nghĩa rất lớn, thẻ <code>&lt;label&gt;</code> với attr <code>for</code> trùng khớp với <code>id</code> của <code>input</code> giúp cho khi ta ấn vào cái bao này, ngay lập tức thẻ <code>input</code> cũng sẽ bị ảnh hưởng ( thay vì phải ấn trực tiếp vào ô vuông nhỏ nhỏ của thẻ input checkbox ). Bắt đầu thấy có tí liên quan rồi đúng không, cái bao bao xung quanh của bóng nhỏ của iOS Switch chính là cái <code>&lt;label&gt;</code> này ấy. Nhưng không sao, để đấy, cứ làm tiếp đã. Kể cả cái <code>&lt;div&gt;</code> với <code>class = &quot;slider&quot;</code>, nhiều người ban đầu sẽ thắc mắc sao custom input lại có 1 div lạ ? Cứ để đấy đã.</p>
+<h3 id="Buoc-1-an-di-the"><a href="#Buoc-1-an-di-the" class="headerlink" title="Bước 1, ẩn đi thẻ "></a>Bước 1, ẩn đi thẻ <input></h3><blockquote>
+<p>Đầu tiên, ta ẩn đi thẻ <input></p>
+</blockquote>
+<p>Lạ lùng đúng không, custom thẻ input lại ẩn đi thẻ input. Ngày xưa mình còn style cho cái thẻ input checkbox này cơ =)) nhưng tin mình đi, nó không thay đổi là mấy đâu. Ý tưởng sẽ là thế này,  <code>ta ẩn đi thẻ input, dùng thằng div với class là &quot;slider&quot; làm hình nhân thế mạng, ta sẽ bắt thằng hình nhân thế mạng này phản ứng thay cho thẻ input</code>. Okay, đi vào làm là hiểu ngay.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#toggle</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Xong, thẻ <code>&lt;input&gt;</code> biến mất. Nhưng mà hãy nhớ là nó chỉ là không nhìn thấy thôi nhé, chứ chưa phải là xóa khỏi DOM đâu. Ta sẽ cần đến thằng input này, để kết hợp với <code>&lt;label&gt;</code> điều khiển quả bóng được tao ra từ <code>&lt;div class=&quot;slider&quot;&gt;&lt;/div&gt;</code>. Minh họa này cho dễ hiểu :</p>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/switch.png" alt="Một bức ảnh minh họa"></p>
+<blockquote>
+<p>Style cho <label> thành cái bao, và <code>&lt;div class=&quot;slider&quot;&gt;</code> thành quả bóng.</p>
+</blockquote>
+<h3 id="Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong"><a href="#Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong" class="headerlink" title="Bước 2, style cho &lt;div class=&quot;slider&quot;&gt; để tạo ra nền và quả bóng."></a>Bước 2, style cho <code>&lt;div class=&quot;slider&quot;&gt;</code> để tạo ra nền và quả bóng.</h3><p>Thằng div này vai trò khá khủng. Nó sẽ là cái rãnh cho quả bóng lăn đi lăn lại ( bao ngoài quả bóng, và tất nhiên <label> lại bao ngoài div như cấu trúc HTML đã viết ).</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.slider</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Rồi, nó dài 100px, rộng 60px. Trông nó như thế này :</p>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/slider.png" alt="Một bức ảnh minh họa"></p>
+<p>Các thuộc tính CSS kia không có gì để bàn ngoại trừ <code>position</code>, tại sao lại có nó, ta sẽ nói ở ngay bên dưới đây.</p>
+<p>Tiếp đến, ta tạo nốt quả bóng. Lúc này ta cần sử dụng một anh bạn hỗ trợ là CSS <code>:before</code> selector ( cặp <code>:after và :before</code> rất lợi hại, hiệu quả không kể hết, tuy nhiên bài viết này sẽ không tập trung quá sâu vào nó ).</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.slider</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>) <span class="number">0px</span> <span class="number">0px</span> <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Tại sao lại có các đơn vị đo thế kia, tại sao lại có top left rồi positon, mình sẽ giải thích ngay.</p>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/calc-switch.png" alt="Một bức ảnh minh họa"></p>
+<ul>
+<li>Gọi x và y là chiều dài và chiều rộng của thanh Switch, chính là thằng <code>.slider</code> bên trên. </li>
+<li>Gọi d là đường kính của quả bóng ( tức là <code>.slider::before</code> ). Quả bóng này có đường kính là 50px, nên ta cho width = height = 50px. Tuy nhiên lúc này nó là hình vuông, nên ta thêm thuộc tính border-radius để bo tròn nó lại cho thành quả bóng. </li>
+<li>Có quả bóng rồi, ta bắt đầu tính toán vị trí ban đầu của nó. Cái Switch cao 60px ( y ), bóng có đường kính 50px, như vậy nó cần cách trên và dưới 5px, nên ta set top = 5px ( suy ra bottom = 50-50-5 = 5px luôn ). Để cho đẹp, ta cho quả bóng cách lề trái 5px luôn, như vậy có left = 5px. Ở đây, ta muốn căn quả bóng theo phụ thuộc thằng cha của nó là cái rãnh bao Switch, tức là thằng <code>.slider</code> nên ta cần đặt thằng con là position là absolute, còn thằng cha là <code>relative</code> ( Đây là lời giải cho dòng CSS position relative bên trên, bạn không thể định ví trí cho 1 child absolute nếu như parent của nó không phải là relative, absolute… chắc cái này các bạn đã biết khi học position ).</li>
+</ul>
+<p>Xong, kết quả trông như này :</p>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/round.png" alt="Một bức ảnh minh họa"></p>
+<h3 id="Buoc-3-xu-ly-viec-chay-di-chay-lai-cua-bong"><a href="#Buoc-3-xu-ly-viec-chay-di-chay-lai-cua-bong" class="headerlink" title="Bước 3, xử lý việc chạy đi chạy lại của bóng"></a>Bước 3, xử lý việc chạy đi chạy lại của bóng</h3><p>Và đây là bước cuối. Hiểu được nó là coi như bạn đã hiểu nguyên lý của việc ta làm từ nãy đến giờ. </p>
+<blockquote>
+<p>Khi người dùng ấn vào thanh Switch ( tức là ấn vào <label> và <code>.slider</code> ), thì thanh input sẽ được tích và rơi vào trạng thái :checked ( dù nó đang bị ẩn, ẩn chứ không phải xóa ). Nên là ta lợi dụng việc này, khi thanh input được tích, ta đẩy quả bóng <code>.slider::before</code> sang phải và đổi nền rãnh bao <code>.slider</code> thành xanh giống Apple là xong. </p>
+</blockquote>
+<p>Nghĩ gì làm đấy, ta viết như này : </p>
+<ol>
+<li><p>Đối với quả bóng, nó cần lăn sang phải 1 chút :</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">"checkbox"</span>]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.slider</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line"> <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">40px</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Đối với rãnh bao, nó cần chuyển sang màu xanh:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">"checkbox"</span>]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.slider</span> &#123;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="number">#07a787</span>;</span><br><span class="line"> <span class="attribute">border</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="/2020/07/12/custom-mot-switch-giong-tren-iOS/translate.png" alt="Một bức ảnh minh họa"></p>
+<p>Lúc này ta lại quay lại hình vẽ bên trên. Ban đầu quả bóng ở vị trí cách lề trái 5px, thì khi nó lăn sang lề phải, nó vẫn phải cách 5px. Như vậy làm 1 phép toán, ta có đoạn đường quả bóng dịch chuyển bằng 100px - 50px - 5px - 5px = 40px. Hãy quay lại hình tính toán để biết các con số này là sao nhé. 2 bên cách 5px, quả bóng dài 50px, khung dài 100px, thì phần còn lại chính là phần quả bóng được phép lăn thôi. Để phục vụ việc này ta sử dụng thuộc tính <code>transform: translateX(40px)</code>. Trong đó <code>transform</code> nó có rất nhiều giá trị hay như <code>scale, skew...</code> các kiểu cơ, ở đây dùng <code>translateX(40px)</code>, tức là dịch theo trục X 1 đoạn 40x.</p>
+<h3 id="Hoan-thien"><a href="#Hoan-thien" class="headerlink" title="Hoàn thiện"></a>Hoàn thiện</h3><p>Đến bước trên là xong 90% rồi, tuy nhiên nếu ta ấn thử thấy quả bóng di chuyển nhanh qua. Apple họ làm mượt lắm cơ mà, đừng lo, hãy thêm <code>transition</code> vào để tạo hiệu ứng bóng lăn và đổi màu nền thật mượt, 0.4s là con số phù hợp nhỉ.<br>Code CSS full sẽ như thế này :</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">for</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"toggle"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slider"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#toggle</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slider</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid gray;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.slider</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">5px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">transition</span>: <span class="number">0.4s</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.1</span>) <span class="number">0px</span> <span class="number">0px</span> <span class="number">5px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">"checkbox"</span>]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.slider</span> &#123;</span><br><span class="line"> <span class="attribute">background-color</span>: <span class="number">#07a787</span>;</span><br><span class="line"> <span class="attribute">border</span>: none;</span><br><span class="line"> <span class="attribute">transition</span>: <span class="number">0.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">input</span><span class="selector-attr">[type=<span class="string">"checkbox"</span>]</span><span class="selector-pseudo">:checked</span> + <span class="selector-class">.slider</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line"> <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">40px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="hungkids" data-slug-hash="BajwZNd" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Custom Checkbox">
+  <span>See the Pen <a href="https://codepen.io/hungkids/pen/BajwZNd" target="_blank" rel="noopener">
+  Custom Checkbox</a> by Phung Thai Hung (<a href="https://codepen.io/hungkids" target="_blank" rel="noopener">@hungkids</a>)
+  on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+<h2 id="Ket-bai"><a href="#Ket-bai" class="headerlink" title="Kết bài"></a>Kết bài</h2><p>Và thế là xong, thực ra custom các ô input dạng này đều dựa theo nguyên lý như vậy. Nên là quan trọng nhất vẫn là lôi máy ngay ra và tự tay thử xem sao nhé. Okay đoạn này rồi, lần sau mình sẽ viết những quả custom xịn hơn, nhiều animation hơn, để lại có cái lên đấy chém tiếp.<br>Giờ là 22:00 đêm rồi, bố mẹ đang gọi ầm lên dưới nhà. Bố mẹ mình vừa đi du lịch trên Tuyên Quang về, mình bị bắt về nhà ở quê trông nhà mấy hôm nay. Giờ tắt máy đã, xuống xem có gì ăn, nghe thoáng thoáng là thấy 1 đống ô mai haha, chẳng ai hiểu mình hơn thế.<br>Thế nhé !!!</p>
+
+  </div>
+</article>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<div id="disqus_thread"></div>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '2d70a0dbc1748c210e9e',
+      clientSecret: 'e7d7f7904230e2098138e9ca2a8f7632668d2134',
+      repo: 'kmacoders.github.io',
+      owner: 'kmacoders',
+      admin: ['kmacoders'],
+      id: md5(location.pathname),
+      distractionFreeMode: true
+    })
+    gitalk.render('disqus_thread')
+</script>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Trang chủ</a></li>
+         
+          <li><a href="/about/">Giới thiệu</a></li>
+         
+          <li><a href="/archives/">Bài viết</a></li>
+         
+          <li><a href="/projects_url">Dự án</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mo-bai"><span class="toc-number">1.</span> <span class="toc-text">Mở bài</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Than-bai"><span class="toc-number">2.</span> <span class="toc-text">Thân bài</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tao-structure-HTML"><span class="toc-number">2.1.</span> <span class="toc-text">Tạo structure HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-1-an-di-the"><span class="toc-number">2.2.</span> <span class="toc-text">Bước 1, ẩn đi thẻ </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-2-style-cho-lt-div-class-quot-slider-quot-gt-de-tao-ra-nen-va-qua-bong"><span class="toc-number">2.3.</span> <span class="toc-text">Bước 2, style cho &lt;div class&#x3D;&quot;slider&quot;&gt; để tạo ra nền và quả bóng.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buoc-3-xu-ly-viec-chay-di-chay-lai-cua-bong"><span class="toc-number">2.4.</span> <span class="toc-text">Bước 3, xử lý việc chạy đi chạy lại của bóng</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hoan-thien"><span class="toc-number">2.5.</span> <span class="toc-text">Hoàn thiện</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ket-bai"><span class="toc-number">3.</span> <span class="toc-text">Kết bài</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&text=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&is_video=false&description=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Custom một Switch giống trên iOS&body=Check out this article: https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&title=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&name=Custom một Switch giống trên iOS&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=https://kmacoders.github.io/2020/07/12/custom-mot-switch-giong-tren-iOS/&t=Custom một Switch giống trên iOS" target="_blank" rel="noopener"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Chia sẻ</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Về đầu trang</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Bản quyền &copy;
+    
+    
+    2016-2020
+    Hung Phung
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Trang chủ</a></li>
+         
+          <li><a href="/about/">Giới thiệu</a></li>
+         
+          <li><a href="/archives/">Bài viết</a></li>
+         
+          <li><a href="/projects_url">Dự án</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
